@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CricketVault — explore cricket players, records, comparisons, history and quizzes.">
+<title>CricketVault | Explore the World of Cricket</title>
+<style>
+:root{--bg:#071b18;--panel:#102a25;--panel2:#15352e;--text:#f2f7f4;--muted:#a9beb5;--lime:#b8ed75;--line:#28483f;--gold:#f2c66d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f4f7f4;color:#15251f;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(120deg,#061b17,#123b30);color:white;position:sticky;top:0;z-index:5;box-shadow:0 4px 20px #061b1722}
+.nav{max-width:1150px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.08em}.logo{width:38px;height:38px;border-radius:12px;background:var(--lime);color:#10251e;display:grid;place-items:center;font-size:21px}
+nav{display:flex;gap:17px;flex-wrap:wrap}nav a{color:#d9e9e1;text-decoration:none;font-size:13px;font-weight:700}nav a:hover{color:var(--lime)}
+.hero{background:radial-gradient(circle at 82% 25%,#2a6047 0,transparent 32%),linear-gradient(120deg,#071b18,#10372d);color:white;padding:76px 22px 70px}.wrap{max-width:1100px;margin:auto}.eyebrow{color:var(--lime);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(38px,7vw,70px);line-height:1.02;margin:15px 0;max-width:760px;letter-spacing:-.04em}.hero p{color:#c3d7ce;max-width:600px;line-height:1.7;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-block;border:0;border-radius:999px;padding:12px 19px;background:var(--lime);color:#10251e;font-weight:850;text-decoration:none;cursor:pointer}.btn.secondary{background:transparent;color:white;border:1px solid #729488}.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:42px}.stat{padding:13px 17px;border:1px solid #47675c;border-radius:13px;background:#ffffff0b;color:#d6e8df;font-size:13px}.stat b{display:block;color:white;font-size:19px}
+main{max-width:1100px;margin:auto;padding:38px 22px 70px}.section{margin:0 0 54px;scroll-margin-top:90px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:19px}.section h2{font-size:27px;margin:0;color:#10251e;letter-spacing:-.03em}.section-head p{color:#687a72;margin:6px 0 0;font-size:14px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:white;border:1px solid #e1e9e3;border-radius:18px;padding:19px;box-shadow:0 8px 25px #10251e08}.card h3{margin:7px 0 8px;font-size:18px}.card p{margin:0;color:#687a72;line-height:1.55;font-size:14px}.tag{display:inline-block;background:#eaf4df;color:#31552c;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:850}.iconbox{width:42px;height:42px;border-radius:13px;background:#eaf4df;display:grid;place-items:center;font-size:21px;margin-bottom:13px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}.field{padding:12px 14px;border:1px solid #cfdbd2;border-radius:11px;background:white;font:inherit;min-width:0}.field.search{flex:1;min-width:210px}.player-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.player{background:white;border:1px solid #e1e9e3;border-radius:14px;padding:16px}.player .initial{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#143c30;color:#c6ef8b;font-weight:900;margin-bottom:10px}.player small{color:#718179}.player h3{margin:0 0 5px}.player p{font-size:13px;color:#66766e;margin:0;line-height:1.5}
+.table-wrap{overflow:auto;background:white;border:1px solid #e1e9e3;border-radius:15px}table{width:100%;border-collapse:collapse;min-width:500px}th,td{text-align:left;padding:14px 16px;border-bottom:1px solid #edf1ed;font-size:14px}th{background:#edf4ed;color:#315044}td{color:#4d6157}
+.tool-panel{background:var(--bg);color:white;border-radius:20px;padding:24px}.tool-panel h2{color:white}.tool-panel p{color:#b8ccc3}.tool-panel .field{width:100%}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:17px 0}.result{background:#17382f;border:1px solid #31594b;border-radius:13px;padding:15px;color:#d8e8df;line-height:1.6;min-height:70px}
+.quiz-question{font-size:19px;font-weight:800;margin:16px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #416457;background:#17382f;color:white;padding:12px;border-radius:11px;text-align:left;cursor:pointer;font-weight:650}.answer:hover{border-color:var(--lime)}.answer:disabled{opacity:.8;cursor:default}.feedback{margin-top:13px;color:var(--lime);font-weight:700;min-height:24px}
+.notice{background:#fff8e7;border:1px solid #f0dfb2;color:#66532b;padding:15px;border-radius:13px;font-size:13px;line-height:1.6}
+footer{background:#071b18;color:#c4d6ce;padding:32px 22px}.footer-inner{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-inner p{font-size:13px;color:#9fb6aa;max-width:560px;line-height:1.6}
+@media(max-width:760px){.nav{align-items:flex-start;flex-direction:column}nav{gap:12px}.hero{padding:55px 20px}.grid,.player-grid{grid-template-columns:1fr 1fr}.section-head{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){.grid,.player-grid,.compare-grid,.answers{grid-template-columns:1fr}.hero h1{font-size:43px}.stats{gap:8px}.stat{flex:1}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+  <div class="brand"><div class="logo">🏏</div><span>CRICKETVAULT</span></div>
+  <nav aria-label="Main navigation">
+    <a href="#explore">Explore</a><a href="#players">Players</a><a href="#records">Records</a><a href="#compare">Compare</a><a href="#quiz">Quiz</a><a href="#about">About</a>
+  </nav>
+</div></header>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Discover · Compare · Explore</div>
+    <h1>Explore the world<br>of cricket.</h1>
+    <p>Player stories, legendary records, cricket explainers and fun quizzes — all in one place for curious cricket fans.</p>
+    <div class="actions"><a class="btn" href="#players">Explore players →</a><a class="btn secondary" href="#quiz">Play a quick quiz</a></div>
+    <div class="stats"><div class="stat"><b>Players</b>Profiles & careers</div><div class="stat"><b>Records</b>Memorable milestones</div><div class="stat"><b>Knowledge</b>Learn the game</div></div>
+  </div>
+</section>
+<main>
+  <section class="section" id="explore">
+    <div class="section-head"><div><h2>Explore cricket</h2><p>Choose a topic and start discovering.</p></div></div>
+    <div class="grid">
+      <article class="card"><div class="iconbox">👤</div><span class="tag">PLAYER PROFILES</span><h3>Know the players</h3><p>Explore player backgrounds, roles, teams and career highlights.</p></article>
+      <article class="card"><div class="iconbox">🏆</div><span class="tag">RECORDS</span><h3>Cricket milestones</h3><p>Discover memorable achievements across international cricket.</p></article>
+      <article class="card"><div class="iconbox">⚖️</div><span class="tag">COMPARISONS</span><h3>Compare players</h3><p>Put two cricket greats side by side and explore their careers.</p></article>
+      <article class="card"><div class="iconbox">🧠</div><span class="tag">QUIZ</span><h3>Test your knowledge</h3><p>Try short quizzes and see how much cricket you know.</p></article>
+      <article class="card"><div class="iconbox">📜</div><span class="tag">HISTORY</span><h3>Stories from the past</h3><p>Learn about cricket's evolution, tournaments and iconic moments.</p></article>
+      <article class="card"><div class="iconbox">📘</div><span class="tag">EXPLAINERS</span><h3>Understand the game</h3><p>Simple guides to formats, rules, roles and cricket terminology.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="players">
+    <div class="section-head"><div><h2>Player directory</h2><p>Search this starter collection by player or country.</p></div></div>
+    <div class="toolbar"><input class="field search" id="playerSearch" type="search" placeholder="Search a player or country…" aria-label="Search players"><select class="field" id="countryFilter" aria-label="Filter by country"><option value="">All countries</option><option>India</option><option>Australia</option><option>Pakistan</option><option>New Zealand</option><option>South Africa</option></select></div>
+    <div class="player-grid" id="playerGrid">
+      <article class="player" data-name="Virat Kohli" data-country="India"><div class="initial">VK</div><h3>Virat Kohli</h3><small>India · Batter</small><p>Known for his consistency, intensity and outstanding batting career.</p></article>
+      <article class="player" data-name="Rohit Sharma" data-country="India"><div class="initial">RS</div><h3>Rohit Sharma</h3><small>India · Batter</small><p>Known for elegant stroke play and leadership across formats.</p></article>
+      <article class="player" data-name="Jasprit Bumrah" data-country="India"><div class="initial">JB</div><h3>Jasprit Bumrah</h3><small>India · Fast bowler</small><p>Recognised for his unusual action, accuracy and bowling skills.</p></article>
+      <article class="player" data-name="Steve Smith" data-country="Australia"><div class="initial">SS</div><h3>Steve Smith</h3><small>Australia · Batter</small><p>Known for an unconventional technique and strong Test batting.</p></article>
+      <article class="player" data-name="Pat Cummins" data-country="Australia"><div class="initial">PC</div><h3>Pat Cummins</h3><small>Australia · Fast bowler</small><p>A fast bowler and international captain.</p></article>
+      <article class="player" data-name="Babar Azam" data-country="Pakistan"><div class="initial">BA</div><h3>Babar Azam</h3><small>Pakistan · Batter</small><p>Known for his fluent batting and cover drives.</p></article>
+      <article class="player" data-name="Kane Williamson" data-country="New Zealand"><div class="initial">KW</div><h3>Kane Williamson</h3><small>New Zealand · Batter</small><p>Known for calm leadership and technically sound batting.</p></article>
+      <article class="player" data-name="Kagiso Rabada" data-country="South Africa"><div class="initial">KR</div><h3>Kagiso Rabada</h3><small>South Africa · Fast bowler</small><p>A leading fast bowler known for pace and aggression.</p></article>
+      <article class="player" data-name="MS Dhoni" data-country="India"><div class="initial">MD</div><h3>MS Dhoni</h3><small>India · Wicketkeeper-batter</small><p>Celebrated for his finishing, wicketkeeping and captaincy.</p></article>
+    </div>
+    <p id="noPlayers" hidden style="color:#687a72">No matching players. Try another search.</p>
+  </section>
+
+  <section class="section" id="records">
+    <div class="section-head"><div><h2>Cricket knowledge corner</h2><p>Starter learning topics — add researched record articles here.</p></div></div>
+    <div class="table-wrap"><table><thead><tr><th>Topic</th><th>What readers can learn</th><th>Suggested article</th></tr></thead><tbody>
+      <tr><td>Batting records</td><td>Runs, centuries and batting milestones</td><td>How batting records are measured</td></tr>
+      <tr><td>Bowling records</td><td>Wickets, averages and economy</td><td>Understanding bowling statistics</td></tr>
+      <tr><td>World Cups</td><td>Tournament history and champions</td><td>How the Cricket World Cup evolved</td></tr>
+      <tr><td>Formats</td><td>Test, ODI and T20 cricket</td><td>Key differences between formats</td></tr>
+    </tbody></table></div>
+    <div class="notice" style="margin-top:14px"><b>Editorial note:</b> This starter site intentionally avoids unverified live statistics. Before publishing a record article, verify the exact figure, date, format and match context using trusted sources such as the ICC and official cricket boards.</div>
+  </section>
+
+  <section class="section" id="compare">
+    <div class="tool-panel">
+      <div class="eyebrow">Interactive tool</div><h2>Player comparison</h2><p>Choose two players from the starter directory. This demo compares their profile information; add verified statistics when you expand the site.</p>
+      <div class="compare-grid">
+        <select class="field" id="playerA" aria-label="First player"><option>Virat Kohli</option><option>Rohit Sharma</option><option>Jasprit Bumrah</option><option>Steve Smith</option><option>Pat Cummins</option><option>Babar Azam</option><option>Kane Williamson</option><option>Kagiso Rabada</option><option>MS Dhoni</option></select>
+        <select class="field" id="playerB" aria-label="Second player"><option>Rohit Sharma</option><option>Virat Kohli</option><option>Jasprit Bumrah</option><option>Steve Smith</option><option>Pat Cummins</option><option>Babar Azam</option><option>Kane Williamson</option><option>Kagiso Rabada</option><option>MS Dhoni</option></select>
+      </div>
+      <button class="btn" id="compareBtn">Compare profiles</button>
+      <div class="result" id="compareResult" aria-live="polite">Select two players and tap Compare profiles.</div>
+    </div>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="tool-panel">
+      <div class="eyebrow">Quick cricket quiz</div><h2>How well do you know cricket?</h2>
+      <div class="quiz-question" id="question">Which format of cricket is traditionally played over five days?</div>
+      <div class="answers" id="answers">
+        <button class="answer" data-correct="false">T20 International</button><button class="answer" data-correct="true">Test cricket</button><button class="answer" data-correct="false">One Day International</button><button class="answer" data-correct="false">The Hundred</button>
+      </div>
+      <div class="feedback" id="feedback" aria-live="polite"></div>
+      <button class="btn secondary" id="nextQuestion" style="margin-top:12px">Next question →</button>
+      <p id="score" style="font-size:13px;margin-top:12px">Score: 0 / 0</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head"><div><h2>About CricketVault</h2><p>A fan-focused cricket learning project.</p></div></div>
+    <div class="card"><p>CricketVault is a growing knowledge hub for fans who enjoy learning about players, records, cricket history and the details behind the game. Our aim is to make cricket information clear, useful and enjoyable. We check important facts before publishing and update articles when information changes.</p></div>
+  </section>
+  <section class="section" id="contact">
+    <div class="section-head"><div><h2>Contact & feedback</h2><p>Invite readers to suggest topics or report corrections.</p></div></div>
+    <div class="card"><p>For now, add your own contact email here before publishing: <b>your-email@example.com</b>. Replace this placeholder with an email address you are allowed to use.</p></div>
+  </section>
+</main>
+<footer><div class="footer-inner"><div><div class="brand"><div class="logo">🏏</div><span>CRICKETVAULT</span></div><p>Discover. Compare. Explore. An independent cricket knowledge project. Not affiliated with the ICC, BCCI or any cricket board.</p></div><div><small>© <span id="year"></span> CricketVault · Built for cricket fans</small></div></div></footer>
+<script>
+const cards=[...document.querySelectorAll('.player')];
+const search=document.getElementById('playerSearch'), filter=document.getElementById('countryFilter');
+function filterPlayers(){let q=search.value.toLowerCase().trim(),c=filter.value,shown=0;cards.forEach(card=>{let ok=card.dataset.name.toLowerCase().includes(q)||card.dataset.country.toLowerCase().includes(q);let visible=ok&&(!c||card.dataset.country===c);card.hidden=!visible;if(visible)shown++});document.getElementById('noPlayers').hidden=shown!==0}
+search.addEventListener('input',filterPlayers);filter.addEventListener('change',filterPlayers);
+const profiles={};
+cards.forEach(c=>profiles[c.dataset.name]={country:c.dataset.country,role:c.querySelector('small').textContent.split('·')[1].trim(),description:c.querySelector('p').textContent});
+document.getElementById('compareBtn').addEventListener('click',()=>{let a=document.getElementById('playerA').value,b=document.getElementById('playerB').value,r=document.getElementById('compareResult');if(a===b){r.textContent='Choose two different players to compare.';return}r.innerHTML='<b>'+a+'</b> — '+profiles[a].country+', '+profiles[a].role+'<br><b>'+b+'</b> — '+profiles[b].country+', '+profiles[b].role+'<br><br>For a statistical comparison, add verified runs, matches, averages and wickets for the same format and date range.'});
+const questions=[
+{q:'Which format of cricket is traditionally played over five days?',a:['T20 International','Test cricket','One Day International','The Hundred'],c:1},
+{q:'How many players from one team are on the field in a standard cricket match?',a:['9','10','11','12'],c:2},
+{q:'What does LBW stand for?',a:['Leg Before Wicket','Long Boundary Wide','Left Batting Wicket','Leg Behind Wicket'],c:0},
+{q:'Which country hosted the first men’s Cricket World Cup in 1975?',a:['India','Australia','England','West Indies'],c:2},
+{q:'How many legal deliveries are normally in an over?',a:['4','5','6','8'],c:2}
+];let qi=0,score=0,answered=0;
+function loadQuestion(){let q=questions[qi];document.getElementById('question').textContent=q.q;let box=document.getElementById('answers');box.innerHTML='';q.a.forEach((v,i)=>{let b=document.createElement('button');b.className='answer';b.textContent=v;b.addEventListener('click',()=>{if(box.dataset.done)return;box.dataset.done='1';answered++;let correct=i===q.c;if(correct)score++;[...box.children].forEach((el,j)=>{el.disabled=true;if(j===q.c)el.style.borderColor='#b8ed75'});document.getElementById('feedback').textContent=correct?'Correct! Great cricket knowledge.':'Not quite. Correct answer: '+q.a[q.c];document.getElementById('score').textContent='Score: '+score+' / '+answered});box.appendChild(b)});box.dataset.done='';document.getElementById('feedback').textContent=''}
+document.getElementById('nextQuestion').addEventListener('click',()=>{qi=(qi+1)%questions.length;loadQuestion()});loadQuestion();
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body></html>
