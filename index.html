@@ -3,102 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="CricketVault: cricket player profiles, records, explainers, articles and quizzes.">
-<meta name="theme-color" content="#071b16">
 <title>CricketVault 2.0 | The Cricket Knowledge Hub</title>
+<meta name="description" content="CricketVault: cricket player profiles, records, explainers, articles, a daily challenge and quizzes.">
+<meta name="theme-color" content="#071b16">
+<link rel="canonical" href="https://cricketvault.github.io/Cricketvault-/">
+<meta property="og:title" content="CricketVault | The Cricket Knowledge Hub">
+<meta property="og:description" content="Player profiles, cricket explainers, a daily Who Am I challenge and quizzes.">
+<meta property="og:type" content="website">
 <style>
-:root{--bg:#071b16;--bg2:#0b261e;--panel:#103328;--panel2:#174535;--green:#b9ed78;--gold:#f2c66d;--white:#f5faf6;--muted:#a9c0b3;--ink:#14271f;--paper:#f3f7f3;--line:#2b5041}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink)}
-a{color:inherit}.topbar{position:sticky;top:0;z-index:20;background:#061811f2;backdrop-filter:blur(12px);border-bottom:1px solid #214537}
-.nav{max-width:1160px;margin:auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;color:white;text-decoration:none;font-weight:950;letter-spacing:.1em;font-size:15px}.brandmark{width:39px;height:39px;border-radius:13px;background:var(--green);display:grid;place-items:center;color:#0a241a;font-size:21px}.navlinks{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.navlinks a{font-size:12px;color:#d4e5db;text-decoration:none;font-weight:750}.navlinks a:hover{color:var(--green)}.menu{display:none;background:transparent;color:white;border:1px solid var(--line);border-radius:9px;padding:8px 11px}
-.hero{background:radial-gradient(ellipse at 80% 18%,#246344 0,transparent 36%),linear-gradient(120deg,#061811,#103a2b 68%,#0b261e);color:white;padding:75px 20px 48px;overflow:hidden}.container{max-width:1100px;margin:auto}.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:900}.hero h1{font-size:clamp(42px,7vw,76px);line-height:.99;letter-spacing:-.055em;margin:16px 0;max-width:780px}.hero p{color:#c1d7ca;max-width:620px;line-height:1.75;font-size:16px}.btn{border:0;border-radius:999px;padding:12px 18px;background:var(--green);color:#10251a;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.btn.ghost{background:transparent;color:white;border:1px solid #648676}.btn.small{padding:9px 13px;font-size:12px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px}.hero-stat{border:1px solid #416452;background:#ffffff0a;border-radius:13px;padding:12px 16px;color:#c6d9ce;font-size:12px}.hero-stat b{display:block;color:white;font-size:19px;margin-bottom:2px}
-main{max-width:1100px;margin:auto;padding:38px 20px 70px}.section{margin:0 0 52px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.section h2{font-size:27px;letter-spacing:-.035em;margin:0;color:#10291e}.section-head p{color:#6b7e72;margin:6px 0 0;font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:white;border:1px solid #e1eae2;border-radius:17px;padding:19px;box-shadow:0 8px 25px #10251a08}.card h3{font-size:17px;margin:8px 0}.card p{color:#687b70;font-size:13px;line-height:1.65;margin:0}.symbol{height:42px;width:42px;display:grid;place-items:center;border-radius:13px;background:#eaf4e3;font-size:21px;margin-bottom:12px}.pill{display:inline-block;border-radius:999px;padding:5px 9px;background:#edf5e7;color:#355b31;font-size:10px;font-weight:900;letter-spacing:.07em;text-transform:uppercase}
-.controls{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}.field{border:1px solid #cfdbd1;background:white;border-radius:10px;padding:11px 12px;font:inherit;font-size:13px;min-width:0}.field.search{flex:1;min-width:190px}.players{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.player{background:white;border:1px solid #e1eae2;border-radius:15px;padding:15px}.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#123d2c;color:var(--green);font-weight:950;margin-bottom:10px}.player h3{font-size:16px;margin:0 0 4px}.player small{color:#668072}.player p{font-size:12px;color:#687b70;line-height:1.55}.player button{margin-top:8px}
-.article-list{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.article{background:white;border:1px solid #e1eae2;border-radius:15px;padding:18px}.article h3{margin:9px 0 7px;font-size:17px}.article p{font-size:13px;line-height:1.65;color:#65776d}.article .body{display:none;border-top:1px solid #e8eee9;padding-top:12px;margin-top:12px}.article.open .body{display:block}.article .body p{margin:7px 0}
-.tablebox{overflow:auto;background:white;border:1px solid #e1eae2;border-radius:15px}table{width:100%;border-collapse:collapse;min-width:560px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #edf1ed;font-size:13px}th{background:#edf4ed;color:#315342}td{color:#52665a}
-.darkpanel{background:linear-gradient(135deg,#071b16,#123b2d);color:white;border-radius:20px;padding:23px}.darkpanel h2{color:white}.darkpanel p{color:#b7cfc1;font-size:13px;line-height:1.6}.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}.result{margin-top:13px;padding:15px;background:#153d2e;border:1px solid #38614d;border-radius:12px;color:#e1eee5;font-size:13px;line-height:1.8;min-height:65px}
-.quizq{font-size:18px;font-weight:850;margin:18px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:9px}.answer{border:1px solid #426b55;background:#153d2e;color:white;border-radius:11px;padding:12px;text-align:left;font-weight:700;cursor:pointer}.answer:disabled{opacity:.85}.answer.correct{border-color:var(--green);background:#244b2f}.answer.wrong{border-color:#e9a49b}.feedback{min-height:24px;color:var(--green);font-weight:750;font-size:13px;margin-top:12px}
-.note{border:1px solid #eadbb2;background:#fff8e8;color:#68552c;padding:13px 15px;border-radius:12px;font-size:12px;line-height:1.65;margin-top:13px}.about{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.contactbox{background:#e8f1e8;border-radius:16px;padding:18px}.contactbox p{font-size:13px;line-height:1.6;color:#5b7164}
-footer{background:#061811;color:#d5e4da;padding:30px 20px}.foot{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot p{max-width:600px;color:#9fb8a8;font-size:12px;line-height:1.7}.foot small{color:#9fb8a8}
-.modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal.show{display:flex}.modalbox{max-width:560px;width:100%;background:white;border-radius:18px;padding:22px;max-height:85vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;gap:12px;align-items:center}.close{border:0;background:#edf2ed;border-radius:9px;padding:8px 11px;cursor:pointer}.modalbox p{color:#5d7064;font-size:13px;line-height:1.7}
-@media(max-width:760px){.nav{align-items:flex-start}.menu{display:block}.navlinks{display:none;position:absolute;top:65px;left:0;right:0;background:#071b16;padding:16px 20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.show{display:flex}.grid,.players{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}}
-@media(max-width:500px){.grid,.players,.article-list,.compare,.answers{grid-template-columns:1fr}.hero{padding-top:54px}.hero h1{font-size:47px}.section h2{font-size:24px}.hero-stat{flex:1}}
+:root{--bg:#071b16;--bg2:#05140f;--card:#0e2a22;--line:#1d4a3b;--text:#e8f3ee;--muted:#a9c4b9;--gold:#e3c76a;--ok:#4cc38a;--bad:#e5786d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:var(--gold)}
+header{position:sticky;top:0;z-index:10;background:var(--bg2);border-bottom:1px solid var(--line)}
+.bar{max-width:1000px;margin:0 auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
+.logo{color:var(--gold);font-weight:bold;text-decoration:none;letter-spacing:.5px}
+#menuBtn{background:none;border:1px solid var(--line);color:var(--text);padding:8px 12px;border-radius:8px;font-size:1rem}
+nav{display:none;flex-direction:column;border-top:1px solid var(--line)}
+nav.open{display:flex}
+nav a{padding:12px 18px;color:var(--text);text-decoration:none;border-bottom:1px solid var(--line)}
+nav a.hot{color:var(--gold);font-weight:bold}
+@media(min-width:800px){#menuBtn{display:none}nav,nav.open{display:flex;flex-direction:row;border:0;gap:2px}nav a{border:0;padding:8px 10px;font-size:.9rem}.bar{flex-wrap:wrap}}
+section{max-width:1000px;margin:0 auto;padding:40px 18px}
+h1{font-size:2.2rem;line-height:1.15;margin:8px 0 12px}
+h2{font-size:1.6rem;margin:0 0 8px;color:var(--gold)}
+h3{margin:0 0 6px}
+.muted{color:var(--muted)}
+.btn{display:inline-block;background:var(--gold);color:#1a2a12;padding:12px 18px;border-radius:10px;font-weight:bold;text-decoration:none;border:0;font-size:1rem;cursor:pointer;margin:6px 8px 6px 0}
+.btn.alt{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.hero{padding-top:50px}
+.daily{border-color:var(--gold)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:bold;list-style:none}
+summary small{display:block;color:var(--muted);font-weight:normal;margin-top:4px}
+.tag{color:var(--gold);font-size:.85rem}
+input,select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--text);font-size:1rem}
+.filters{display:grid;gap:10px;grid-template-columns:2fr 1fr;margin-bottom:16px}
+.av{width:44px;height:44px;border-radius:50%;background:var(--line);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:bold;margin-bottom:8px}
+.pbtn{background:none;border:0;color:var(--gold);padding:0;font-size:1rem;text-decoration:underline;cursor:pointer}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top;font-size:.92rem}
+th{background:var(--card);color:var(--gold)}
+.scroll{overflow-x:auto}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px;margin:8px 0;font-size:1rem;cursor:pointer}
+.opt.right{border-color:var(--ok);background:#12392b}
+.opt.wrong{border-color:var(--bad)}
+.two{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:20;padding:20px;overflow:auto}
+#modal.show{display:block}
+.mbox{max-width:520px;margin:40px auto;background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:20px;position:relative}
+.x{position:absolute;right:12px;top:10px;background:none;border:0;color:var(--text);font-size:1.4rem;cursor:pointer}
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:24px 18px;text-align:center;color:var(--muted);font-size:.9rem}
+footer a{margin:0 8px}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="nav container">
-<a class="brand" href="#home"><span class="brandmark">🏏</span><span>CRICKETVAULT</span></a>
-<button class="menu" id="menuBtn" aria-label="Open navigation">☰ Menu</button>
-<nav class="navlinks" id="navLinks"><a href="#home">HOME</a><a href="#articles">ARTICLES</a><a href="#players">PLAYERS</a><a href="#records">RECORDS</a><a href="#compare">COMPARE</a><a href="#quiz">QUIZ</a><a href="#about">ABOUT</a></nav>
-</div></header>
-<section class="hero" id="home"><div class="container">
-<div class="kicker">The cricket knowledge hub</div><h1>Every story.<br>Every record.<br>One game.</h1>
-<p>Explore the people, moments, numbers and ideas that make cricket fascinating. Learn the game, discover legendary players and test your cricket knowledge.</p>
-<div class="hero-actions"><a class="btn" href="#players">Explore players →</a><a class="btn ghost" href="#quiz">Take the quiz</a></div>
-<div class="hero-stats"><div class="hero-stat"><b>Player profiles</b>Discover careers</div><div class="hero-stat"><b>Cricket records</b>Explore milestones</div><div class="hero-stat"><b>Knowledge quiz</b>Test yourself</div></div>
-</div></section>
-<main>
-<section class="section" id="articles"><div class="section-head"><div><h2>Featured articles</h2><p>Short, beginner-friendly cricket explainers. Select Read article to expand.</p></div></div>
-<div class="article-list" id="articleList">
-<article class="article"><span class="pill">Beginner guide</span><h3>Test vs ODI vs T20: What is the difference?</h3><p>Understand the three major international formats and what makes each one unique.</p><button class="btn small readBtn">Read article +</button><div class="body"><p><b>Test cricket:</b> Traditionally played over up to five days, with each team having two innings. It rewards patience, technique and strategy.</p><p><b>One Day International (ODI):</b> Each team normally gets 50 overs. The format combines longer innings with a single-day match.</p><p><b>Twenty20 (T20):</b> Each team gets 20 overs, creating a shorter and often faster-paced contest.</p></div></article>
-<article class="article"><span class="pill">Cricket basics</span><h3>How does a cricket over work?</h3><p>A simple explanation of legal deliveries, extras and how overs fit into an innings.</p><button class="btn small readBtn">Read article +</button><div class="body"><p>An over normally consists of six legal balls bowled by one bowler from one end. Certain deliveries, such as wides and no-balls, do not count as one of the six legal balls. The next over is bowled from the opposite end by a different bowler.</p></div></article>
-<article class="article"><span class="pill">Player roles</span><h3>What makes a great all-rounder?</h3><p>Explore the skills needed to contribute with both bat and ball.</p><button class="btn small readBtn">Read article +</button><div class="body"><p>An all-rounder contributes meaningfully in more than one discipline, commonly batting and bowling. Teams value the balance an effective all-rounder can provide. Wicketkeeping, fielding and leadership are also important skills, but they do not alone define a batting-and-bowling all-rounder.</p></div></article>
-<article class="article"><span class="pill">Cricket history</span><h3>A quick introduction to cricket history</h3><p>From early forms of the game to the international sport followed around the world.</p><button class="btn small readBtn">Read article +</button><div class="body"><p>Cricket developed in England over several centuries before spreading internationally. The first recognised men's Test match took place in 1877 between Australia and England. Limited-overs formats later brought new audiences and styles to the sport.</p></div></article>
-</div><div class="note">These are starter explainers, not breaking-news articles. Check official rules and trusted cricket sources before adding detailed statistics or historical claims.</div></section>
+<header>
+<div class="bar"><a class="logo" href="#home">🏏 CRICKETVAULT</a><button id="menuBtn" aria-label="Open menu">☰ Menu</button>
+<nav id="nav">
+<a href="#home">Home</a><a href="#articles">Articles</a><a href="#players">Players</a><a href="#records">Records</a><a href="#compare">Compare</a><a href="#quiz">Quiz</a><a class="hot" href="daily.html">Daily Challenge</a><a href="#about">About</a>
+</nav></div>
+</header>
 
-<section class="section" id="players"><div class="section-head"><div><h2>Player directory</h2><p>Search by player name or filter by country. Open a profile for a short introduction.</p></div></div>
-<div class="controls"><input class="field search" id="playerSearch" placeholder="Search player or country..." aria-label="Search players"><select class="field" id="countryFilter" aria-label="Filter country"><option value="">All countries</option><option>India</option><option>Australia</option><option>Pakistan</option><option>New Zealand</option><option>South Africa</option></select></div>
-<div class="players" id="playerGrid">
-<div class="player" data-name="Virat Kohli" data-country="India" data-role="Batter" data-info="Indian batter known for consistency, intensity and performances across formats."><div class="avatar">VK</div><h3>Virat Kohli</h3><small>India · Batter</small><p>Explore his career, batting style and major milestones.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Rohit Sharma" data-country="India" data-role="Batter" data-info="Indian batter recognised for elegant stroke play and leadership across formats."><div class="avatar">RS</div><h3>Rohit Sharma</h3><small>India · Batter</small><p>Explore his career, batting style and major milestones.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Jasprit Bumrah" data-country="India" data-role="Fast bowler" data-info="Indian fast bowler known for accuracy, pace variations and an unusual bowling action."><div class="avatar">JB</div><h3>Jasprit Bumrah</h3><small>India · Fast bowler</small><p>Explore his bowling skills and career highlights.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="MS Dhoni" data-country="India" data-role="Wicketkeeper-batter" data-info="Former Indian wicketkeeper-batter celebrated for finishing ability, wicketkeeping and captaincy."><div class="avatar">MD</div><h3>MS Dhoni</h3><small>India · Wicketkeeper-batter</small><p>Explore his leadership and cricket journey.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Steve Smith" data-country="Australia" data-role="Batter" data-info="Australian batter known for an unconventional technique and strong Test performances."><div class="avatar">SS</div><h3>Steve Smith</h3><small>Australia · Batter</small><p>Explore his technique and career highlights.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Pat Cummins" data-country="Australia" data-role="Fast bowler" data-info="Australian fast bowler and international captain."><div class="avatar">PC</div><h3>Pat Cummins</h3><small>Australia · Fast bowler</small><p>Explore his bowling and leadership.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Babar Azam" data-country="Pakistan" data-role="Batter" data-info="Pakistan batter known for fluent stroke play and timing."><div class="avatar">BA</div><h3>Babar Azam</h3><small>Pakistan · Batter</small><p>Explore his batting and career highlights.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Kane Williamson" data-country="New Zealand" data-role="Batter" data-info="New Zealand batter known for calm leadership and technically sound batting."><div class="avatar">KW</div><h3>Kane Williamson</h3><small>New Zealand · Batter</small><p>Explore his technique and leadership.</p><button class="btn small profileBtn">View profile</button></div>
-<div class="player" data-name="Kagiso Rabada" data-country="South Africa" data-role="Fast bowler" data-info="South African fast bowler known for pace and wicket-taking ability."><div class="avatar">KR</div><h3>Kagiso Rabada</h3><small>South Africa · Fast bowler</small><p>Explore his bowling career and achievements.</p><button class="btn small profileBtn">View profile</button></div>
-</div><p id="noPlayers" hidden style="color:#66796d;font-size:13px">No players found. Try another search.</p></section>
+<section id="home" class="hero">
+<p class="tag">The cricket knowledge hub</p>
+<h1>Every story. Every record. One game.</h1>
+<p class="muted">Explore the people, moments, numbers and ideas that make cricket fascinating. Learn the game, discover legendary players and test your cricket knowledge.</p>
+<a class="btn" href="#players">Explore players</a><a class="btn alt" href="#quiz">Take the quiz</a>
+<div class="grid" style="margin-top:22px">
+<div class="card daily"><h3>Who Am I? Daily Challenge</h3><p class="muted">One mystery cricketer a day. Fewer clues, more points.</p><a class="btn" href="daily.html">Play today’s puzzle</a></div>
+<div class="card"><h3>Did you know?</h3><p id="fact" class="muted"></p><button class="btn alt" id="factBtn">Another fact</button></div>
+<div class="card"><h3>Player profiles</h3><p class="muted">Discover careers.</p></div>
+<div class="card"><h3>Knowledge quiz</h3><p class="muted">Test yourself.</p></div>
+</div>
+</section>
 
-<section class="section" id="records"><div class="section-head"><div><h2>Cricket records & learning</h2><p>Explore record categories and build detailed, source-checked articles.</p></div></div>
-<div class="tablebox"><table><thead><tr><th>Category</th><th>What to research</th><th>Useful context</th></tr></thead><tbody>
+<section id="articles">
+<h2>Featured articles</h2>
+<p class="muted">Short, beginner-friendly cricket explainers. Tap a title to open it.</p>
+<details><summary><span class="tag">Beginner guide</span><br>Test vs ODI vs T20: What is the difference?<small>Understand the three major international formats.</small></summary>
+<p><b>Test cricket:</b> Traditionally played over up to five days, with each team having two innings. It rewards patience, technique and strategy.</p>
+<p><b>One Day International (ODI):</b> Each team normally gets 50 overs. The format combines longer innings with a single-day match.</p>
+<p><b>Twenty20 (T20):</b> Each team gets 20 overs, creating a shorter and often faster-paced contest.</p></details>
+<details><summary><span class="tag">Cricket basics</span><br>How does a cricket over work?<small>Legal deliveries, extras and how overs fit into an innings.</small></summary>
+<p>An over normally consists of six legal balls bowled by one bowler from one end. Certain deliveries, such as wides and no-balls, do not count as one of the six legal balls. The next over is bowled from the opposite end by a different bowler.</p></details>
+<details><summary><span class="tag">Player roles</span><br>What makes a great all-rounder?<small>Skills needed to contribute with both bat and ball.</small></summary>
+<p>An all-rounder contributes meaningfully in more than one discipline, commonly batting and bowling. Teams value the balance an effective all-rounder can provide. Wicketkeeping, fielding and leadership are also important skills, but they do not alone define a batting-and-bowling all-rounder.</p></details>
+<details><summary><span class="tag">Cricket history</span><br>A quick introduction to cricket history<small>From early forms of the game to the international sport.</small></summary>
+<p>Cricket developed in England over several centuries before spreading internationally. The first recognised men’s Test match took place in 1877 between Australia and England. Limited-overs formats later brought new audiences and styles to the sport.</p></details>
+<p class="muted">These are starter explainers, not breaking-news articles. Check official rules and trusted cricket sources before relying on detailed statistics.</p>
+</section>
+
+<section id="players">
+<h2>Player directory</h2>
+<p class="muted">Search by player name or filter by country. Open a profile for a short introduction.</p>
+<div class="filters"><input id="search" type="search" placeholder="Search players" aria-label="Search players"><select id="country" aria-label="Filter by country"><option value="">All countries</option></select></div>
+<div class="grid" id="plist"></div>
+<p id="none" class="muted" style="display:none">No players match your search.</p>
+</section>
+
+<section id="records">
+<h2>Cricket records &amp; learning</h2>
+<p class="muted">Explore record categories and build detailed, source-checked articles.</p>
+<div class="scroll"><table>
+<tr><th>Category</th><th>What to research</th><th>Useful context</th></tr>
 <tr><td>Batting</td><td>Runs, centuries, highest scores</td><td>Always specify format and date</td></tr>
 <tr><td>Bowling</td><td>Wickets, best figures, averages</td><td>Separate Test, ODI and T20I</td></tr>
 <tr><td>Fielding</td><td>Catches and run-outs</td><td>Clarify player role and format</td></tr>
-<tr><td>World Cups</td><td>Champions, leading performers</td><td>Separate men's and women's events</td></tr>
+<tr><td>World Cups</td><td>Champions, leading performers</td><td>Separate men’s and women’s events</td></tr>
 <tr><td>Team records</td><td>Wins, totals and partnerships</td><td>Include match and opponent details</td></tr>
-</tbody></table></div>
-<div class="note"><b>Accuracy promise:</b> This version does not claim to show live scores or a complete current world-record ranking. Verify record figures with ICC, official cricket boards or recognised score archives before publishing them.</div></section>
+</table></div>
+<p><b>Accuracy promise:</b> This site does not claim to show live scores or a complete current world-record ranking. Verify record figures with the ICC, official cricket boards or recognised score archives.</p>
+</section>
 
-<section class="section" id="compare"><div class="darkpanel"><div class="kicker">Interactive cricket tool</div><h2>Compare player profiles</h2><p>Select two players to compare their country and playing role. This starter comparison deliberately avoids inventing career statistics.</p>
-<div class="compare"><select class="field" id="playerA" aria-label="First player"></select><select class="field" id="playerB" aria-label="Second player"></select></div>
-<button class="btn" id="compareBtn">Compare players</button><div class="result" id="compareResult" aria-live="polite">Choose two players and select Compare players.</div></div></section>
+<section id="compare">
+<p class="tag">Interactive cricket tool</p>
+<h2>Compare player profiles</h2>
+<p class="muted">Select two players to compare their country and playing role. This starter comparison deliberately avoids inventing career statistics.</p>
+<div class="two"><select id="p1" aria-label="First player"></select><select id="p2" aria-label="Second player"></select></div>
+<button class="btn" id="cmpBtn">Compare players</button>
+<div class="card" id="cmpOut">Choose two players and select Compare players.</div>
+</section>
 
-<section class="section" id="quiz"><div class="darkpanel"><div class="kicker">Play & learn</div><h2>Cricket knowledge quiz</h2><div class="quizq" id="question"></div><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><button class="btn ghost" id="nextBtn">Next question →</button><p id="score" style="font-size:12px;color:#b9cfc1;margin-top:14px">Score: 0 / 0</p></div></section>
+<section id="quiz">
+<p class="tag">Play &amp; learn</p>
+<h2>Cricket knowledge quiz</h2>
+<div class="card"><h3 id="q"></h3><div id="opts"></div><p id="fb" class="muted" role="status"></p>
+<button class="btn" id="next">Next question</button><p>Score: <b id="score">0 / 0</b></p></div>
+</section>
 
-<section class="section" id="about"><div class="section-head"><div><h2>About CricketVault</h2><p>A fan-focused cricket learning project.</p></div></div><div class="about"><div class="card"><h3>Our mission</h3><p>CricketVault helps fans explore players, understand the rules, discover cricket history and learn how records are measured. We aim to make cricket information clear, useful and enjoyable. Important statistics should be checked against reliable sources and updated with a visible date.</p></div><div class="contactbox"><h3>Contact & corrections</h3><p>Have a topic suggestion or spotted a factual error? Add a contact email you control before publishing this site widely.</p><p><b>Email:</b> replace-this@example.com</p><p><b>Independent project:</b> Not affiliated with ICC, BCCI or any cricket board.</p></div></div></section>
-</main>
-<footer><div class="foot"><div><a class="brand" href="#home"><span class="brandmark">🏏</span><span>CRICKETVAULT</span></a><p>Discover. Compare. Explore. An independent cricket knowledge hub built for curious fans. Player descriptions are introductory and not a substitute for verified statistical records.</p></div><small>© <span id="year"></span> CricketVault · Version 2.0</small></div></footer>
-<div class="modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">Player profile</h2><button class="close" id="closeModal" aria-label="Close">✕</button></div><p id="modalText"></p><p id="modalMeta"></p><p>For a full profile, add verified career statistics, teams, milestones and sources before publishing.</p></div></div>
+<section id="about">
+<h2>About CricketVault</h2>
+<p class="muted">A fan-focused cricket learning project.</p>
+<h3>Our mission</h3>
+<p>CricketVault helps fans explore players, understand the rules, discover cricket history and learn how records are measured. We aim to make cricket information clear, useful and enjoyable. Important statistics should be checked against reliable sources and updated with a visible date.</p>
+<h3>Contact &amp; corrections</h3>
+<p>Have a topic suggestion or spotted a factual error? Write to us.</p>
+<p><b>Email:</b> <a href="mailto:reachcricketvault@gmail.com">reachcricketvault@gmail.com</a></p>
+<p><b>Independent project:</b> Not affiliated with the ICC, BCCI or any cricket board.</p>
+</section>
+
+<footer>
+<a href="#home">🏏 CricketVault</a><a href="daily.html">Daily Challenge</a><a href="privacy.html">Privacy Policy</a><a href="disclaimer.html">Disclaimer</a>
+<p>Discover. Compare. Explore. An independent cricket knowledge hub built for curious fans. Player descriptions are introductory and not a substitute for verified statistical records.</p>
+<p>© CricketVault · Version 2.1</p>
+</footer>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="Player profile"><div class="mbox"><button class="x" id="mx" aria-label="Close">✕</button><div id="mbody"></div></div></div>
+
 <script>
-const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('navLinks');menuBtn.addEventListener('click',()=>nav.classList.toggle('show'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('show')));
-document.querySelectorAll('.readBtn').forEach(b=>b.addEventListener('click',()=>{const a=b.closest('.article');a.classList.toggle('open');b.textContent=a.classList.contains('open')?'Close article −':'Read article +'}));
-const playerCards=[...document.querySelectorAll('.player')],search=document.getElementById('playerSearch'),country=document.getElementById('countryFilter');
-function filterPlayers(){let q=search.value.toLowerCase().trim(),c=country.value,n=0;playerCards.forEach(p=>{let match=(p.dataset.name+' '+p.dataset.country).toLowerCase().includes(q)&&(!c||p.dataset.country===c);p.hidden=!match;if(match)n++});document.getElementById('noPlayers').hidden=n>0}
-search.addEventListener('input',filterPlayers);country.addEventListener('change',filterPlayers);
-const modal=document.getElementById('profileModal');playerCards.forEach(p=>p.querySelector('.profileBtn').addEventListener('click',()=>{document.getElementById('modalTitle').textContent=p.dataset.name;document.getElementById('modalText').textContent=p.dataset.info;document.getElementById('modalMeta').textContent=p.dataset.country+' · '+p.dataset.role;modal.classList.add('show')}));document.getElementById('closeModal').addEventListener('click',()=>modal.classList.remove('show'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('show')});
-const names=playerCards.map(p=>p.dataset.name),a=document.getElementById('playerA'),b=document.getElementById('playerB');names.forEach(n=>{a.add(new Option(n,n));b.add(new Option(n,n))});b.selectedIndex=1;
-function profile(n){let p=playerCards.find(x=>x.dataset.name===n);return p.dataset.country+' · '+p.dataset.role}
-document.getElementById('compareBtn').addEventListener('click',()=>{let x=a.value,y=b.value,r=document.getElementById('compareResult');r.textContent=x===y?'Choose two different players.':x+': '+profile(x)+' | '+y+': '+profile(y)+'. To compare career numbers fairly, use the same format and a matching statistics date.'});
-const qs=[
-{q:'Which format is traditionally played over up to five days?',o:['T20','Test cricket','ODI','The Hundred'],c:1},
-{q:'How many players are in a standard cricket team on the field?',o:['9','10','11','12'],c:2},
-{q:'What does LBW stand for?',o:['Leg Before Wicket','Long Boundary Wide','Left Batting Wicket','Leg Behind Wicket'],c:0},
-{q:'How many legal balls are normally bowled in an over?',o:['4','5','6','8'],c:2},
-{q:'Which country hosted the first men’s Cricket World Cup in 1975?',o:['India','England','Australia','Pakistan'],c:1},
-{q:'Which role combines batting and bowling contributions?',o:['Umpire','All-rounder','Commentator','Groundskeeper'],c:1}
-];let qi=0,score=0,answered=0;
-function loadQ(){let q=qs[qi],box=document.getElementById('answers');document.getElementById('question').textContent=q.q;document.getElementById('feedback').textContent='';box.innerHTML='';q.o.forEach((v,i)=>{let btn=document.createElement('button');btn.className='answer';btn.textContent=v;btn.addEventListener('click',()=>{if(box.dataset.done)return;box.dataset.done='1';answered++;if(i===q.c){score++;btn.classList.add('correct');document.getElementById('feedback').textContent='Correct! Great cricket knowledge.'}else{btn.classList.add('wrong');box.children[q.c].classList.add('correct');document.getElementById('feedback').textContent='Not quite. Correct answer: '+q.o[q.c]}[...box.children].forEach(x=>x.disabled=true);document.getElementById('score').textContent='Score: '+score+' / '+answered});box.appendChild(btn)});box.dataset.done=''}
-document.getElementById('nextBtn').addEventListener('click',()=>{qi=(qi+1)%qs.length;loadQ()});loadQ();document.getElementById('year').textContent=new Date().getFullYear();
+(function(){
+function $(i){return document.getElementById(i)}
+// ---- Players: add new ones by copying a line. Keep info short and verified. ----
+var P=[
+{n:"Virat Kohli",c:"India",r:"Batter",i:"VK",t:"Right-handed batter. Captained India to the Under-19 World Cup title in 2008."},
+{n:"Rohit Sharma",c:"India",r:"Batter",i:"RS",t:"Right-handed opening batter who led India to the 2024 T20 World Cup title."},
+{n:"Jasprit Bumrah",c:"India",r:"Fast bowler",i:"JB",t:"Fast bowler known for his distinctive bowling action."},
+{n:"MS Dhoni",c:"India",r:"Wicketkeeper-batter",i:"MD",t:"Wicketkeeper-batter who captained India to the 2007 T20 World Cup and 2011 World Cup titles."},
+{n:"Steve Smith",c:"Australia",r:"Batter",i:"SS",t:"Australian batter known for his unorthodox technique and former Australia captain."},
+{n:"Pat Cummins",c:"Australia",r:"Fast bowler",i:"PC",t:"Fast bowler and Australia’s Test captain, who led the side to the 2023 World Cup title."},
+{n:"Babar Azam",c:"Pakistan",r:"Batter",i:"BA",t:"Pakistan batter and former national captain."},
+{n:"Kane Williamson",c:"New Zealand",r:"Batter",i:"KW",t:"New Zealand batter known for his technique and calm leadership as former captain."},
+{n:"Kagiso Rabada",c:"South Africa",r:"Fast bowler",i:"KR",t:"South African fast bowler and a leading member of the national attack."}
+];
+// ---- Facts: only add facts you have checked with a reliable source. ----
+var F=[
+"The first recognised men’s Test match was played in 1877 between Australia and England.",
+"The first men’s Cricket World Cup was held in England in 1975 and won by the West Indies.",
+"Sachin Tendulkar scored 100 international centuries across Tests and ODIs.",
+"Don Bradman finished his Test career with a batting average of 99.94.",
+"Muttiah Muralitharan took 800 wickets in Test cricket.",
+"An international match between the USA and Canada in 1844 is often called the first international cricket match.",
+"Cricket has been approved for the 2028 Los Angeles Olympic Games in the T20 format."
+];
+var Q=[
+{q:"How many legal balls are in a normal over?",o:["4","6","8","10"],a:1},
+{q:"In which year was the first recognised men’s Test match played?",o:["1844","1877","1900","1932"],a:1},
+{q:"Who scored 100 international centuries?",o:["Sachin Tendulkar","Brian Lara","Ricky Ponting","Jacques Kallis"],a:0},
+{q:"Who won the first men’s Cricket World Cup in 1975?",o:["India","Australia","West Indies","England"],a:2},
+{q:"Which bowler took 800 Test wickets?",o:["Shane Warne","Muttiah Muralitharan","Anil Kumble","James Anderson"],a:1},
+{q:"How many overs does each team normally get in a T20 match?",o:["10","20","40","50"],a:1},
+{q:"What is Don Bradman’s famous Test batting average?",o:["89.94","94.99","99.94","101.50"],a:2},
+{q:"What does it mean when a batter is out for a duck?",o:["Out for zero runs","Out first ball only","Out caught behind","Out for one run"],a:0}
+];
+
+// menu
+$("menuBtn").onclick=function(){$("nav").classList.toggle("open")};
+$("nav").onclick=function(e){if(e.target.tagName==="A")$("nav").classList.remove("open")};
+
+// facts
+var fi=Math.floor(Math.random()*F.length);
+function showFact(){$("fact").textContent=F[fi];fi=(fi+1)%F.length}
+$("factBtn").onclick=showFact;showFact();
+
+// players
+var cs={};P.forEach(function(p){cs[p.c]=1});
+Object.keys(cs).sort().forEach(function(c){var o=document.createElement("option");o.value=c;o.textContent=c;$("country").appendChild(o)});
+function drawPlayers(){
+var s=$("search").value.toLowerCase().trim(),c=$("country").value,h="",k=0;
+P.forEach(function(p,idx){
+if(c&&p.c!==c)return;if(s&&p.n.toLowerCase().indexOf(s)<0)return;
+k++;h+='<div class="card"><div class="av">'+p.i+'</div><h3>'+p.n+'</h3><p class="muted">'+p.c+' · '+p.r+'</p><button class="pbtn" data-i="'+idx+'">View profile</button></div>';
+});
+$("plist").innerHTML=h;$("none").style.display=k?"none":"block";
+}
+$("search").oninput=drawPlayers;$("country").onchange=drawPlayers;
+$("plist").onclick=function(e){
+var i=e.target.getAttribute("data-i");if(i===null)return;
+var p=P[i];
+$("mbody").innerHTML='<h3>'+p.n+'</h3><p class="muted">'+p.c+' · '+p.r+'</p><p>'+p.t+'</p><p class="muted">This is a short introduction. Verify career statistics with the ICC or ESPNcricinfo before relying on them.</p>';
+$("modal").classList.add("show");$("mx").focus();
+};
+function closeM(){$("modal").classList.remove("show")}
+$("mx").onclick=closeM;
+$("modal").onclick=function(e){if(e.target===$("modal"))closeM()};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeM()});
+drawPlayers();
+
+// compare
+[ $("p1"),$("p2") ].forEach(function(sel,k){P.forEach(function(p,i){var o=document.createElement("option");o.value=i;o.textContent=p.n;sel.appendChild(o)});sel.value=k})
+$("cmpBtn").onclick=function(){
+var a=P[$("p1").value],b=P[$("p2").value];
+if(a===b){$("cmpOut").textContent="Please choose two different players.";return}
+$("cmpOut").innerHTML='<div class="scroll"><table><tr><th></th><th>'+a.n+'</th><th>'+b.n+'</th></tr><tr><td>Country</td><td>'+a.c+'</td><td>'+b.c+'</td></tr><tr><td>Role</td><td>'+a.r+'</td><td>'+b.r+'</td></tr></table></div><p class="muted">Career statistics are not shown here because they must be verified first.</p>';
+};
+
+// quiz
+var order=[],qi=0,right=0,done=0,locked=false;
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function ask(){
+if(!order.length||qi>=order.length){order=shuffle(Q.map(function(_,i){return i}));qi=0}
+var q=Q[order[qi]];locked=false;$("fb").textContent="";
+$("q").textContent=q.q;$("opts").innerHTML="";
+q.o.forEach(function(t,i){var b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=function(){pick(b,i,q)};$("opts").appendChild(b)});
+}
+function pick(b,i,q){
+if(locked)return;locked=true;done++;
+var all=$("opts").children;
+if(i===q.a){right++;b.classList.add("right");$("fb").textContent="Correct!"}
+else{b.classList.add("wrong");all[q.a].classList.add("right");$("fb").textContent="Not quite. The correct answer is highlighted."}
+$("score").textContent=right+" / "+done;
+}
+$("next").onclick=function(){qi++;ask()};
+ask();
+})();
 </script>
-</body></html>
+</body>
+</html>
